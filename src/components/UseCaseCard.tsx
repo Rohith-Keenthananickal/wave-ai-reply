@@ -9,12 +9,15 @@ interface UseCaseCardProps {
 
 export const UseCaseCard = ({ icon: Icon, industry, example }: UseCaseCardProps) => {
   return (
-    <Card className="p-6 hover:shadow-hover transition-all duration-300 hover:scale-105 border-border/50 bg-card">
-      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-        <Icon className="w-6 h-6 text-primary" />
+    <Card className="group p-6 hover:shadow-md transition-all duration-500 hover:-translate-y-1 border-border/50 bg-card relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative">
+        <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-500">
+          <Icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-500" />
+        </div>
+        <h3 className="text-lg font-bold mb-2 text-foreground">{industry}</h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">{example}</p>
       </div>
-      <h3 className="text-lg font-semibold mb-2 text-foreground">{industry}</h3>
-      <p className="text-sm text-muted-foreground">{example}</p>
     </Card>
   );
 };

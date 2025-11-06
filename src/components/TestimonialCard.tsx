@@ -17,16 +17,19 @@ export const TestimonialCard = ({ name, company, role, quote }: TestimonialCardP
     .toUpperCase();
 
   return (
-    <Card className="p-6 hover:shadow-hover transition-all duration-300 bg-card">
-      <Quote className="w-8 h-8 text-primary/20 mb-4" />
-      <p className="text-foreground mb-6 italic leading-relaxed">{quote}</p>
-      <div className="flex items-center gap-3">
-        <Avatar className="w-12 h-12">
-          <AvatarFallback className="bg-primary/10 text-primary font-semibold">{initials}</AvatarFallback>
-        </Avatar>
-        <div>
-          <p className="font-semibold text-foreground">{name}</p>
-          <p className="text-sm text-muted-foreground">{role} at {company}</p>
+    <Card className="group p-8 hover:shadow-lg transition-all duration-500 hover:-translate-y-1 bg-card border-border/50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative">
+        <Quote className="w-10 h-10 text-primary/30 mb-6" />
+        <p className="text-foreground mb-8 italic leading-relaxed text-lg">{quote}</p>
+        <div className="flex items-center gap-4">
+          <Avatar className="w-14 h-14 ring-2 ring-primary/20">
+            <AvatarFallback className="bg-gradient-primary text-primary-foreground font-bold text-lg">{initials}</AvatarFallback>
+          </Avatar>
+          <div>
+            <p className="font-bold text-foreground text-lg">{name}</p>
+            <p className="text-sm text-muted-foreground">{role} at {company}</p>
+          </div>
         </div>
       </div>
     </Card>

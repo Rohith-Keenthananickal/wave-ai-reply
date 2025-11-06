@@ -22,7 +22,9 @@ import {
   Building2,
   FileText,
   Play,
-  MessageCircle
+  MessageCircle,
+  ArrowRight,
+  Zap
 } from "lucide-react";
 import heroImage from "@/assets/hero-chat.png";
 import aiBrainImage from "@/assets/ai-brain.png";
@@ -33,31 +35,39 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gradient-hero">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground leading-tight">
+      <section className="pt-32 pb-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-subtle" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+        <div className="container mx-auto max-w-7xl relative">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="animate-fade-in space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm">
+                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                WhatsApp Business Automation
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
                 Automate your business conversations with AI on WhatsApp
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
                 ChatServe helps businesses connect, automate, and grow using AI-driven WhatsApp experiences.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="lg">
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Button size="lg" variant="hero" className="shadow-lg hover:shadow-glow text-lg px-8 py-6">
                   Get Started
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button size="lg" variant="outline" className="border-2 border-primary/30 text-primary hover:bg-primary/5 text-lg px-8 py-6">
                   <Play className="w-5 h-5 mr-2" />
                   Watch Demo
                 </Button>
               </div>
             </div>
-            <div className="animate-float">
-              <img 
-                src={heroImage} 
-                alt="WhatsApp AI Chat Interface" 
-                className="w-full max-w-lg mx-auto rounded-2xl shadow-hover"
+            <div className="animate-fade-in relative">
+              <div className="absolute inset-0 bg-gradient-glow opacity-20 blur-3xl animate-pulse" />
+              <img
+                src={heroImage}
+                alt="WhatsApp AI Chat Interface"
+                className="w-full h-auto rounded-3xl shadow-lg animate-float relative z-10"
               />
             </div>
           </div>
@@ -65,10 +75,13 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 bg-background">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-bold mb-6 text-foreground">What is ChatServe?</h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+      <section className="py-24 px-4 bg-gradient-to-b from-background to-accent/20">
+        <div className="container mx-auto max-w-5xl text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
+            About ChatServe
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">What is ChatServe?</h2>
+          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
             ChatServe is an all-in-one WhatsApp Business Solution that enables automated conversations, 
             customer support, appointment booking, and more — all powered by AI.
           </p>
@@ -76,13 +89,16 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-4 bg-secondary">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Key Features</h2>
-            <p className="text-xl text-muted-foreground">Everything you need to automate WhatsApp conversations</p>
+      <section id="features" className="py-24 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-20 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
+              Features
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold">Key Features</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Everything you need to automate your WhatsApp Business</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FeatureCard
               icon={Bot}
               title="AI Chat Layer"
@@ -117,14 +133,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-20 px-4 bg-background">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">How ChatServe Works</h2>
-            <p className="text-xl text-muted-foreground">Get started in four simple steps</p>
+      {/* How It Works */}
+      <section className="py-24 px-4 bg-gradient-to-b from-accent/20 to-background">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-20 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
+              How It Works
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold">How ChatServe Works</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Get started in 4 simple steps</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             <StepCard
               number="1"
               title="Connect WhatsApp"
@@ -150,13 +169,16 @@ const Index = () => {
       </section>
 
       {/* Use Cases Section */}
-      <section className="py-20 px-4 bg-secondary">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Built for Every Industry</h2>
-            <p className="text-xl text-muted-foreground">Trusted by businesses across sectors</p>
+      <section className="py-24 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-20 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
+              Use Cases
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold">Built for Every Industry</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Trusted by businesses across sectors</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <UseCaseCard
               icon={Hotel}
               industry="Hotels"
@@ -191,69 +213,61 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Integration Section */}
-      <section className="py-20 px-4 bg-background">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4 text-foreground">Connect ChatServe with Your Favorite Tools</h2>
-          <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Seamlessly integrate ChatServe with your CRM, ERP, or custom software through APIs and webhooks.
-          </p>
-          <div className="flex flex-wrap justify-center gap-8 items-center">
-            {["Salesforce", "HubSpot", "Zoho", "Google Calendar", "Custom API"].map((integration) => (
-              <div key={integration} className="px-8 py-4 bg-card border border-border rounded-lg shadow-card hover:shadow-hover transition-all duration-300">
-                <span className="text-lg font-semibold text-foreground">{integration}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* AI Power Section */}
-      <section className="py-20 px-4 bg-secondary">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-float">
-              <img 
-                src={aiBrainImage} 
-                alt="AI-Powered Intelligence" 
-                className="w-full max-w-md mx-auto"
+      <section className="py-24 px-4 bg-gradient-to-b from-background to-accent/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+        <div className="container mx-auto max-w-7xl relative">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 relative">
+              <div className="absolute inset-0 bg-gradient-glow opacity-30 blur-3xl" />
+              <img
+                src={aiBrainImage}
+                alt="AI Brain"
+                className="w-full h-auto rounded-3xl shadow-lg relative z-10"
               />
             </div>
-            <div>
-              <h2 className="text-4xl font-bold mb-6 text-foreground">Empowered by AI</h2>
-              <ul className="space-y-4 text-lg text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Bot className="w-4 h-4 text-primary" />
+            <div className="order-1 lg:order-2 space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm">
+                <Bot className="w-4 h-4" />
+                AI Powered
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight">Empowered by AI</h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border/50 hover:shadow-md transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0">
+                    <Bot className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <span>Intent detection and smart auto-reply for instant responses</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Workflow className="w-4 h-4 text-primary" />
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Smart Intent Detection</h3>
+                    <p className="text-muted-foreground">Automatically understand customer intent, trigger workflows, and provide instant auto-replies</p>
                   </div>
-                  <span>Intelligent workflow triggers based on customer behavior</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <BarChart3 className="w-4 h-4 text-primary" />
+                </div>
+                <div className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border/50 hover:shadow-md transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <span>Trained on your FAQs and product data for accurate responses</span>
-                </li>
-              </ul>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Trained on Your Data</h3>
+                    <p className="text-muted-foreground">Customize AI responses by training on your FAQs, product catalogs, and business knowledge</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4 bg-background">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Simple Pricing for Every Business</h2>
-            <p className="text-xl text-muted-foreground">Choose the plan that fits your needs</p>
+      <section id="pricing" className="py-24 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-20 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
+              Pricing
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold">Simple Pricing for Every Business</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Choose the plan that fits your needs</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <PricingCard
               title="Starter"
               price="₹999"
@@ -294,14 +308,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-secondary">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">What Our Customers Say</h2>
-            <p className="text-xl text-muted-foreground">Trusted by businesses worldwide</p>
+      {/* Testimonials */}
+      <section className="py-24 px-4 bg-gradient-to-b from-accent/20 to-background">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-20 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
+              Testimonials
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold">What Our Customers Say</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Trusted by businesses worldwide</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <TestimonialCard
               name="Rajesh Kumar"
               company="Grand Plaza Hotels"
@@ -325,30 +342,23 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 bg-background">
-        <div className="container mx-auto max-w-2xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Let's Build Your WhatsApp AI Experience</h2>
-            <p className="text-xl text-muted-foreground">Get in touch for a personalized demo</p>
+      <section id="contact" className="py-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background to-primary/5" />
+        <div className="container mx-auto max-w-3xl text-center relative space-y-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
+            Get Started
           </div>
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Input placeholder="Your Name" className="h-12" />
-              <Input placeholder="Email Address" type="email" className="h-12" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Input placeholder="Company Name" className="h-12" />
-              <Input placeholder="Phone Number" type="tel" className="h-12" />
-            </div>
-            <Textarea placeholder="Tell us about your requirements..." className="min-h-32" />
-            <Button variant="hero" size="lg" className="w-full">
-              Request a Demo
-            </Button>
-          </form>
-          <div className="mt-8 text-center">
-            <Button variant="outline" size="lg">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Let's Build Your WhatsApp AI Experience</h2>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+            Get in touch with our team to see how ChatServe can transform your business communications
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center pt-4">
+            <Button size="lg" variant="hero" className="shadow-lg hover:shadow-glow text-lg px-8 py-6">
               <MessageCircle className="w-5 h-5 mr-2" />
-              Chat with us on WhatsApp
+              Chat on WhatsApp
+            </Button>
+            <Button size="lg" variant="outline" className="border-2 border-primary/30 text-primary hover:bg-primary/5 text-lg px-8 py-6">
+              Request a Demo
             </Button>
           </div>
         </div>

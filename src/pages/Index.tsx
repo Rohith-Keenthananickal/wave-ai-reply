@@ -194,7 +194,7 @@ const Index = () => {
       </section>
 
       {/* Chat Demo Section */}
-      <section ref={chatDemoSection.ref} className="py-24 px-4 bg-card relative overflow-hidden">
+      {/* <section ref={chatDemoSection.ref} className="py-24 px-4 bg-card relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent-secondary/10" />
         <div className={`container mx-auto max-w-7xl relative z-10 transition-all duration-1000 ${
           chatDemoSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -246,7 +246,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Use Cases Section */}
       <section ref={useCasesSection.ref} className="py-24 px-4 bg-gradient-section relative overflow-hidden">

@@ -38,6 +38,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          secondary: "hsl(var(--accent-secondary))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -119,10 +120,15 @@ export default {
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",
         "gradient-primary": "var(--gradient-primary)",
+        "gradient-section": "var(--gradient-section)",
+        "gradient-card": "var(--gradient-card)",
+        "gradient-subtle": "var(--gradient-subtle)",
+        "gradient-glow": "var(--gradient-glow)",
       },
       boxShadow: {
         "card": "var(--shadow-card)",
         "hover": "var(--shadow-hover)",
+        "glow": "var(--shadow-glow)",
       },
     },
   },

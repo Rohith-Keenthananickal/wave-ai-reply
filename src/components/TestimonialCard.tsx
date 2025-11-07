@@ -17,8 +17,8 @@ export const TestimonialCard = ({ name, company, role, quote }: TestimonialCardP
     .toUpperCase();
 
   return (
-    <Card className="group p-8 hover:shadow-lg transition-all duration-500 hover:-translate-y-1 bg-card border-border/50 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <Card className="group p-8 hover:shadow-lg transition-all duration-500 hover:-translate-y-1 bg-gradient-card border-border/50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent-secondary/15 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <div className="relative">
         <Quote className="w-10 h-10 text-primary/30 mb-6" />
         <p className="text-foreground mb-8 italic leading-relaxed text-lg">{quote}</p>

@@ -35,9 +35,10 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-subtle" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+      <section className="pt-32 pb-24 px-4 relative overflow-hidden bg-gradient-hero">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent-secondary/20" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent-secondary/30 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }} />
         <div className="container mx-auto max-w-7xl relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in space-y-8">
@@ -75,8 +76,9 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-background to-accent/20">
-        <div className="container mx-auto max-w-5xl text-center space-y-6">
+      <section className="py-24 px-4 bg-card relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-accent-secondary/20" />
+        <div className="container mx-auto max-w-5xl text-center space-y-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
             About ChatServe
           </div>
@@ -89,8 +91,10 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 px-4">
-        <div className="container mx-auto max-w-7xl">
+      <section id="features" className="py-24 px-4 bg-gradient-section relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl" />
+        <div className="container mx-auto max-w-7xl relative z-10">
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               Features
@@ -134,8 +138,10 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 px-4 bg-gradient-to-b from-accent/20 to-background">
-        <div className="container mx-auto max-w-7xl">
+      <section className="py-24 px-4 bg-gradient-to-br from-accent/40 via-accent-secondary/20 to-accent/40 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(142,60%,95%),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(190,60%,95%),transparent_50%)]" />
+        <div className="container mx-auto max-w-7xl relative z-10">
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               How It Works
@@ -169,8 +175,10 @@ const Index = () => {
       </section>
 
       {/* Use Cases Section */}
-      <section className="py-24 px-4">
-        <div className="container mx-auto max-w-7xl">
+      <section className="py-24 px-4 bg-card relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent-secondary/15 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="container mx-auto max-w-7xl relative z-10">
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               Use Cases
@@ -214,8 +222,9 @@ const Index = () => {
       </section>
 
       {/* AI Power Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-background to-accent/20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+      <section className="py-24 px-4 bg-gradient-section relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-secondary/12 rounded-full blur-3xl" />
         <div className="container mx-auto max-w-7xl relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 relative">
@@ -258,8 +267,9 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 px-4">
-        <div className="container mx-auto max-w-7xl">
+      <section id="pricing" className="py-24 px-4 bg-gradient-to-br from-accent/40 via-accent-secondary/25 to-accent/40 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(142,70%,95%),transparent_70%)]" />
+        <div className="container mx-auto max-w-7xl relative z-10">
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               Pricing
@@ -309,8 +319,10 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-4 bg-gradient-to-b from-accent/20 to-background">
-        <div className="container mx-auto max-w-7xl">
+      <section className="py-24 px-4 bg-card relative overflow-hidden">
+        <div className="absolute top-0 right-1/3 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-accent-secondary/15 rounded-full blur-3xl" />
+        <div className="container mx-auto max-w-7xl relative z-10">
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               Testimonials
@@ -342,8 +354,8 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background to-primary/5" />
+      <section id="contact" className="py-24 px-4 bg-gradient-to-br from-accent-secondary/30 via-accent/35 to-accent-secondary/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,hsl(142,70%,95%),transparent_60%)]" />
         <div className="container mx-auto max-w-3xl text-center relative space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
             Get Started

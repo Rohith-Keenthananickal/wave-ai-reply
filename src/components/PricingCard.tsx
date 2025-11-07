@@ -12,8 +12,8 @@ interface PricingCardProps {
 
 export const PricingCard = ({ title, price, period = "/mo", features, highlighted }: PricingCardProps) => {
   return (
-    <Card className={`group p-10 relative ${highlighted ? "border-primary border-2 shadow-lg scale-105" : "border-border"} hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden`}>
-      <div className={`absolute inset-0 bg-gradient-to-br ${highlighted ? "from-primary/10 to-transparent" : "from-accent/30 to-transparent"} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+    <Card className={`group p-10 relative ${highlighted ? "border-primary border-2 shadow-lg scale-105 bg-gradient-card" : "border-border bg-card"} hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden`}>
+      <div className={`absolute inset-0 bg-gradient-to-br ${highlighted ? "from-primary/15 via-accent-secondary/10 to-accent/15" : "from-accent/25 via-accent-secondary/15 to-transparent"} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
       {highlighted && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-primary text-primary-foreground px-6 py-2 rounded-full text-sm font-bold shadow-md">
           Most Popular

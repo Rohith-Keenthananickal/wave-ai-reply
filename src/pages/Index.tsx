@@ -8,6 +8,7 @@ import { StepCard } from "@/components/StepCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { 
   Bot, 
   Workflow, 
@@ -28,8 +29,20 @@ import {
 } from "lucide-react";
 import heroImage from "@/assets/hero-chat.png";
 import aiBrainImage from "@/assets/ai-brain.png";
+import chatBookingImage from "@/assets/chat-booking.png";
+import chatSupportImage from "@/assets/chat-support.png";
+import chatAppointmentImage from "@/assets/chat-appointment.png";
 
 const Index = () => {
+  const aboutSection = useScrollAnimation({ threshold: 0.2 });
+  const featuresSection = useScrollAnimation({ threshold: 0.1 });
+  const stepsSection = useScrollAnimation({ threshold: 0.1 });
+  const useCasesSection = useScrollAnimation({ threshold: 0.1 });
+  const aiSection = useScrollAnimation({ threshold: 0.2 });
+  const pricingSection = useScrollAnimation({ threshold: 0.1 });
+  const testimonialsSection = useScrollAnimation({ threshold: 0.1 });
+  const chatDemoSection = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -76,9 +89,11 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-24 px-4 bg-card relative overflow-hidden">
+      <section ref={aboutSection.ref} className="py-24 px-4 bg-card relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-accent-secondary/20" />
-        <div className="container mx-auto max-w-5xl text-center space-y-6 relative z-10">
+        <div className={`container mx-auto max-w-5xl text-center space-y-6 relative z-10 transition-all duration-1000 ${
+          aboutSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
             About ChatServe
           </div>
@@ -91,10 +106,12 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 px-4 bg-gradient-section relative overflow-hidden">
+      <section ref={featuresSection.ref} id="features" className="py-24 px-4 bg-gradient-section relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl" />
-        <div className="container mx-auto max-w-7xl relative z-10">
+        <div className={`container mx-auto max-w-7xl relative z-10 transition-all duration-1000 ${
+          featuresSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               Features
@@ -138,10 +155,12 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 px-4 bg-gradient-to-br from-accent/40 via-accent-secondary/20 to-accent/40 relative overflow-hidden">
+      <section ref={stepsSection.ref} className="py-24 px-4 bg-gradient-to-br from-accent/40 via-accent-secondary/20 to-accent/40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(142,60%,95%),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(190,60%,95%),transparent_50%)]" />
-        <div className="container mx-auto max-w-7xl relative z-10">
+        <div className={`container mx-auto max-w-7xl relative z-10 transition-all duration-1000 ${
+          stepsSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               How It Works
@@ -174,11 +193,68 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Chat Demo Section */}
+      <section ref={chatDemoSection.ref} className="py-24 px-4 bg-card relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent-secondary/10" />
+        <div className={`container mx-auto max-w-7xl relative z-10 transition-all duration-1000 ${
+          chatDemoSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <div className="text-center mb-20 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
+              <MessageCircle className="w-4 h-4" />
+              Live Chat Examples
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold">See ChatServe in Action</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Real WhatsApp conversations powered by AI</p>
+          </div>
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            <div className={`group transition-all duration-700 delay-100 ${
+              chatDemoSection.isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            }`}>
+              <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card shadow-lg group-hover:shadow-glow transition-all duration-500">
+                <img src={chatBookingImage} alt="Hotel Booking Chat" className="w-full h-auto" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-xl font-bold text-foreground mb-2">Hotel Booking</h3>
+                  <p className="text-sm text-muted-foreground">Automated room reservations and guest inquiries</p>
+                </div>
+              </div>
+            </div>
+            <div className={`group transition-all duration-700 delay-300 ${
+              chatDemoSection.isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            }`}>
+              <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card shadow-lg group-hover:shadow-glow transition-all duration-500">
+                <img src={chatSupportImage} alt="Customer Support Chat" className="w-full h-auto" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-xl font-bold text-foreground mb-2">Customer Support</h3>
+                  <p className="text-sm text-muted-foreground">Instant order tracking and query resolution</p>
+                </div>
+              </div>
+            </div>
+            <div className={`group transition-all duration-700 delay-500 ${
+              chatDemoSection.isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            }`}>
+              <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card shadow-lg group-hover:shadow-glow transition-all duration-500">
+                <img src={chatAppointmentImage} alt="Appointment Scheduling Chat" className="w-full h-auto" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-xl font-bold text-foreground mb-2">Appointment Scheduling</h3>
+                  <p className="text-sm text-muted-foreground">Smart calendar integration for healthcare</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Use Cases Section */}
-      <section className="py-24 px-4 bg-card relative overflow-hidden">
+      <section ref={useCasesSection.ref} className="py-24 px-4 bg-gradient-section relative overflow-hidden">
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2" />
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent-secondary/15 rounded-full blur-3xl -translate-y-1/2" />
-        <div className="container mx-auto max-w-7xl relative z-10">
+        <div className={`container mx-auto max-w-7xl relative z-10 transition-all duration-1000 ${
+          useCasesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               Use Cases
@@ -222,11 +298,13 @@ const Index = () => {
       </section>
 
       {/* AI Power Section */}
-      <section className="py-24 px-4 bg-gradient-section relative overflow-hidden">
+      <section ref={aiSection.ref} className="py-24 px-4 bg-card relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-secondary/12 rounded-full blur-3xl" />
         <div className="container mx-auto max-w-7xl relative">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className={`grid lg:grid-cols-2 gap-16 items-center transition-all duration-1000 ${
+            aiSection.isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+          }`}>
             <div className="order-2 lg:order-1 relative">
               <div className="absolute inset-0 bg-gradient-glow opacity-30 blur-3xl" />
               <img
@@ -242,7 +320,7 @@ const Index = () => {
               </div>
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">Empowered by AI</h2>
               <div className="space-y-6">
-                <div className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border/50 hover:shadow-md transition-all duration-300">
+                <div className="flex items-start gap-4 p-6 rounded-2xl bg-gradient-card border border-border/50 hover:shadow-md transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0">
                     <Bot className="w-6 h-6 text-primary-foreground" />
                   </div>
@@ -251,7 +329,7 @@ const Index = () => {
                     <p className="text-muted-foreground">Automatically understand customer intent, trigger workflows, and provide instant auto-replies</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border/50 hover:shadow-md transition-all duration-300">
+                <div className="flex items-start gap-4 p-6 rounded-2xl bg-gradient-card border border-border/50 hover:shadow-md transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0">
                     <Zap className="w-6 h-6 text-primary-foreground" />
                   </div>
@@ -267,9 +345,11 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 px-4 bg-gradient-to-br from-accent/40 via-accent-secondary/25 to-accent/40 relative overflow-hidden">
+      <section ref={pricingSection.ref} id="pricing" className="py-24 px-4 bg-gradient-to-br from-accent/40 via-accent-secondary/25 to-accent/40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(142,70%,95%),transparent_70%)]" />
-        <div className="container mx-auto max-w-7xl relative z-10">
+        <div className={`container mx-auto max-w-7xl relative z-10 transition-all duration-1000 ${
+          pricingSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               Pricing
@@ -319,10 +399,12 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-4 bg-card relative overflow-hidden">
+      <section ref={testimonialsSection.ref} className="py-24 px-4 bg-card relative overflow-hidden">
         <div className="absolute top-0 right-1/3 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-accent-secondary/15 rounded-full blur-3xl" />
-        <div className="container mx-auto max-w-7xl relative z-10">
+        <div className={`container mx-auto max-w-7xl relative z-10 transition-all duration-1000 ${
+          testimonialsSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           <div className="text-center mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-4">
               Testimonials
